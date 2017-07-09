@@ -8,8 +8,7 @@ import MentionHighlight from './mentionHighlight';
 export default function chatObserver()
 {
     /** Loop over existing messages and add badges */
-    $(document).on('DOMNodeInserted', $('#chat').parent(), function (e) {
-
+    $('#chat').parent().on('DOMNodeInserted', function (e) {
         if ($(e.target).find('img').length === 0) {
             return;
         }
@@ -33,7 +32,10 @@ export default function chatObserver()
 
         Subscribers.addBadges(e.target);
     });
+    addMutationObserver();
+};
 
+function addMutationObserver() {
     const target = document.querySelector('.style-scope .yt-live-chat-item-list-renderer');
 
     if (!target) {
