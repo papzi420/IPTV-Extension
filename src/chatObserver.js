@@ -39,7 +39,7 @@ function addMutationObserver() {
     const target = document.querySelector('.style-scope .yt-live-chat-item-list-renderer');
 
     if (!target) {
-        setTimeout(chatObserver, 250);
+        setTimeout(addMutationObserver, 250);
         return;
     }
 
